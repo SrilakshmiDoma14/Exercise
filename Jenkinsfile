@@ -8,8 +8,8 @@ pipeline {
 	environment {
 		def serverIP = '3.85.194.215'
 		def homeDir = '/home/sonar/tomcat8'
-        def startServer = "${homeDir}/bin/startup.sh"
-        def stopServer = "${homeDir}/bin/shutdown.sh"
+                def startServer = "${homeDir}/bin/startup.sh"
+                def stopServer = "${homeDir}/bin/shutdown.sh"
 	}
 
 	stages {
@@ -47,10 +47,10 @@ pipeline {
 				
 				stage('Deploy') {
 					steps {
-                        sh "scp -o StrictHostKeyChecking=no target/petclinic.war sonar@${serverIP}:/home/sonar/tomcat8/webapps/myweb.war"
-                        sh "ssh sonar@${serverIP} ${stopServer}"
-                        sh "ssh sonar@${serverIP} ${startServer}"
-                    }
+                        			sh "scp -o StrictHostKeyChecking=no target/petclinic.war sonar@${serverIP}:/home/sonar/tomcat8/webapps/myweb.war"
+                        			sh "ssh sonar@${serverIP} ${stopServer}"
+                        			sh "ssh sonar@${serverIP} ${startServer}"
+                    			}
 				}
 			}
 		}
